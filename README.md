@@ -1,24 +1,6 @@
 <h1 align="center">fivem-ts-boilerplate</h1>
 
-<p align="center">
-  <i>:fire: A Typescript Boilerplate for FiveM :video_game:</i>
-  <br>
-  <br>
-  <a href="https://github.com/d0p3t/fivem-ts-boilerplate/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat" alt="License: MIT">
-  </a>
-  <a href="https://github.com/d0p3t/fivem-ts-boilerplate/commits/master">
-    <img src="https://img.shields.io/github/last-commit/d0p3t/fivem-ts-boilerplate.svg?style=flat" alt="Last commit">
-  </a>
-  <a href="">
-    <img src="https://img.shields.io/github/workflow/status/d0p3t/fivem-ts-boilerplate/Node.js%20CI" alt="Workflow">
-  </a>
-  <a href="https://discord.d0p3t.nl">
-    <img src="https://img.shields.io/discord/330910293934997504?label=Chat" alt="Chat">
-  </a>
-</p>
-
-This is a basic boilerplate for creating a FiveM resource using Typescript. It includes webpack config files, linting (ESlint + prettier) and a directory structure to get you started. We recommend to use [fivem-js](https://github.com/d0p3t/fivem-js) alongside this boilerplate for faster development of client scripts.
+Forked from [fivem-ts-boilerplate](https://github.com/d0p3t/fivem-ts-boilerplate) with more recent package updates.
 
 ## Usage
 1. Clone repository into your `resources/[local]` folder.
