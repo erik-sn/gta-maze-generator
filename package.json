@@ -8,7 +8,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "watch": "webpack --mode development --watch"
   },
   "license": "MIT",
