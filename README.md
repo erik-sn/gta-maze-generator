@@ -1,10 +1,10 @@
 # GTA Maze Generator
 
-[![Video Demo](https://streamable.com/b4dn1x)
+![Video Demo](./demo.gif)
 
 ## Installation
 
-`npm i gta-maze-generator
+`npm i gta-maze-generator`
 
 ## Usage
 

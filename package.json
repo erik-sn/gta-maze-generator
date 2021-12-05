@@ -1,6 +1,6 @@
 {
   "name": "gta-maze-generator",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Generates random mazes with random GTA entities",
   "main": "index.js",
   "repository": "https://github.com/erik-sn/gta-maze-generator",
