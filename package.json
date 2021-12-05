@@ -1,9 +1,9 @@
 {
-  "name": "fivem-ts-boilerplate",
-  "version": "3.0.0",
-  "description": "Typescript Boilerplate for FiveM",
+  "name": "gta-maze-generator",
+  "version": "1.0.0",
+  "description": "Generates random mazes with random GTA entities",
   "main": "index.js",
-  "repository": "https://github.com/erik-sn/fivem-ts-boilerplate",
+  "repository": "https://github.com/erik-sn/gta-maze-generator",
   "author": "erik-sn",
   "scripts": {
     "build": "webpack --mode production",
@@ -13,17 +13,15 @@
   },
   "license": "MIT",
   "private": false,
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@citizenfx/client": "^2.0.5046-1",
     "@citizenfx/server": "^2.0.5046-1",
     "@types/node": "^16.11.11",
-    "eslint-config-prettier": "^8.3.0",
-    "fivem-js": "^1.5.2"
-  },
-  "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
     "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-webpack-plugin": "^3.1.1",
     "prettier": "^2.5.0",
     "remove-files-webpack-plugin": "^1.4.5",

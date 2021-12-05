@@ -27,18 +27,30 @@ export async function spawnEntity(hash: number, x: number, y: number, z: number,
   await SetEntityHeading(obj, heading);
 }
 
-class EntityMaze extends Maze {
+export class EntityMaze extends Maze {
   public async renderEntities(entityHash: number, x: number, y: number, z: number, layers = 1) {
     if (layers < 1) {
       console.warn(`Minimum maze layers is 1 - found ${layers}. Setting maze level to 1.`);
       layers = 1;
     }
 
+    console.log('Rendering Maze with parameters:');
+    console.log('Hash: ', entityHash);
+    console.log('x: ', x);
+    console.log('y: ', y);
+    console.log('z: ', z);
+    console.log('layers: ', layers);
+
     const entityDimension = calculateLongestDimension(entityHash);
     const entityHeight = getEntityHeight(entityHash);
 
-    this.verticals = [new Array(this.y).fill(false), ...this.verticals];
+    const firstVertical = [true, ...new Array(this.y - 1).fill(false)]; // add entrance
 
+    // add exit
+    const lastVertical = this.verticals[this.verticals.length - 1];
+    lastVertical[lastVertical.length - 1] = true;
+
+    this.verticals = [firstVertical, ...this.verticals];
     new Array(layers).fill(1).forEach(async (_, layer) => {
       this.verticals.forEach((line, i) => {
         line.forEach(async (isOpen, j) => {
@@ -71,15 +83,28 @@ class EntityMaze extends Maze {
   }
 }
 
-async function drawMaze() {
-  const entityHash = -1116116298;
-
+async function drawMaze(source, args: any[]) {
   const player = GetPlayerPed(-1);
-  const [x, y, z] = GetEntityCoords(player, true);
+  const [pX, pY, pZ] = GetEntityCoords(player, true);
 
-  const maze = new EntityMaze(5, 7);
-  console.log(maze);
-  await maze.renderEntities(entityHash, x - 8, y - 8, z, 4);
+  let [X, Y, hash, layers, x, y, z] = args;
+
+  if (!X) X = 5; // default to 3x4 maze
+  if (!Y) Y = 7; // default to 3x4 maze
+  if (!hash) hash = -1116116298; // default to wall that has colloision
+  if (!layers) layers = 1; // default to a single layer
+  if (!x) x = pX - 5; // default to player position plus some
+  if (!y) y = pY - 5; // default to player position plus some
+  if (!z) z = pZ; // default to player position plus some
+
+  const maze = new EntityMaze(parseInt(X), parseInt(Y));
+  await maze.renderEntities(
+    parseInt(hash),
+    parseFloat(x),
+    parseFloat(y),
+    parseFloat(z),
+    parseInt(layers),
+  );
 }
 
 RegisterCommand('maze', drawMaze, false);

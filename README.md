@@ -1,31 +1,45 @@
-<h1 align="center">fivem-ts-boilerplate</h1>
+# GTA Maze Generator
 
-Forked from [fivem-ts-boilerplate](https://github.com/d0p3t/fivem-ts-boilerplate) with more recent package updates.
+[![Video Demo](https://streamable.com/b4dn1x)
+
+## Installation
+
+`npm i gta-maze-generator
 
 ## Usage
-1. Clone repository into your `resources/[local]` folder.
-2. `npm i` the dependencies.
-3. Start development.
 
-### Development
-Use `npm run watch` to watch files during development.
+### In game
 
-### Production
-Build your production ready code with `npm run build`.
+From FiveM the command `/maze` is provided with optional arguments: `X Y hash layers, x, y ,z`
 
-This will build the client and server script with the `--mode production` flag.
+- X (default 5): the x dimension of the maze (length)
+- Y (default 7): the y dimension of the maze (width)
+- hash (default -1116116298): the FiveM entity hash you want to build the maze out of
+- layers (default 1): how "tall" the maze will be with entities stacked on top of each other
+- x (default player location): x coordinate of maze start point
+- y (default player location): y coordinate of maze start point
+- z (default player location): z coordinate of maze start point
 
-### Automatic Builds (Optional)
-The `fxmanifest.lua` is not setup to automatically build upon first FXServer start. If you'd like to setup automatic builds you must add the following to your `fxmanifest.lua`.
+### In JavaScript/TypeScript
 
-```lua
-dependency 'yarn'
-dependency 'webpack'
+```
+import Maze from './maze';
 
-webpack_config 'webpack.config.js'
+// see above for variable meanings
+const maze = new EntityMaze(X, Y);
+maze.renderEntities(
+    hash,
+    x,
+    y,
+    z,
+    layers,
+);
+
 ```
 
-However, due to the speed performance of the pre-packaged webpack/yarn of cfx-server-data, we suggest you don't do this and build manually as described previously ("Production").
+## Development
 
-## License
-This product is MIT licensed. Please make sure you give credit and include this license in your product.
+1. `git clone git@github.com:erik-sn/gta-maze-generator.git`
+2. `cd gta-maze-generator`
+3. `npm i`
+4. `npm run watch`

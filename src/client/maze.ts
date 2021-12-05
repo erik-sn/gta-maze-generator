@@ -78,7 +78,6 @@ class Maze {
         currentLocation = path.pop();
         continue;
       }
-      console.log(currentLocation);
 
       openings -= 1;
       const randomNeighbor = neighbors[Math.floor(Math.random() * neighbors.length)];
@@ -94,56 +93,9 @@ class Maze {
       currentLocation = randomNeighbor;
       path.push(currentLocation);
     }
-
-    console.log('Verticals:');
-    console.log(verticals);
     this.verticals = verticals;
-    console.log('Horizontals:');
-    console.log(horizontals);
     this.horizontals = horizontals;
   }
-
-  renderText() {
-    console.log(this.horizontals);
-    console.log(this.verticals);
-    const text = [];
-    // 0 - 5
-    for (let j = 0; j < this.x * 2 + 1; j++) {
-      const line = [];
-      if (0 == j % 2) {
-        // 0 - 13
-        for (let k = 0; k < this.y * 4 + 1; k++) {
-          if (0 == k % 4) {
-            // 0, 4, 8,
-            line[k] = '+';
-          } else if (j > 0 && this.verticals[j / 2 - 1][Math.floor(k / 4)]) {
-            line[k] = ' ';
-          } else {
-            line[k] = '-';
-          }
-        }
-      } else {
-        for (let k = 0; k < this.y * 4 + 1; k++) {
-          if (0 == k % 4) {
-            // j = 1
-            // k = 2
-            // horiz[0][]
-            if (k > 0 && this.horizontals[(j - 1) / 2][k / 4 - 1]) {
-              line[k] = ' ';
-            } else {
-              line[k] = '|';
-            }
-          } else {
-            line[k] = ' ';
-          }
-        }
-      }
-      text.push(line.join('') + '\r\n');
-    }
-    return text.join('');
-  }
 }
-
-// document.getElementById('out').innerHTML = new Maze(3, 4).renderText();
 
 export default Maze;
